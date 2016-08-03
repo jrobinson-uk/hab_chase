@@ -1,0 +1,47 @@
+#!/bin/sh
+
+sudo apt-get update
+sudo apt-get install -y build-essential cmake libusb-1.0-0-dev pkg-config git-core libcurl4-openssl-dev libjpeg9-dev autoconf libxmlrpc-c++8-dev libfftw3-dev libfltk1.3-dev libsamplerate0-dev libssl-dev portaudio19-dev pavucontrol libpulse-dev mplayer2
+
+echo "Installing Airspy drivers..."
+sleep 2
+cd ~/
+git clone https://github.com/airspy/host.git
+cd host
+mkdir build
+cd build
+cmake ../ -DINSTALL_UDEV_RULES=ON
+make
+sudo make install
+sudo ldconfig
+
+echo "Installing csdr..."
+sleep 2
+cd ~/
+git clone https://github.com/simonyiszk/csdr.git
+cd csdr
+make
+sudo make install
+
+
+echo "Installing DL-fldigi..."
+sleep 2
+git clone git://github.com/ukhas/dl-fldigi.git
+cd dl-fldigi
+git checkout DL3.1
+git submodule init
+git submodule update
+cd ~/
+git clone https://github.com/airspy/host.git
+cd host
+mkdir build
+cd build
+cmake ../ -DINSTALL_UDEV_RULES=ON
+make
+sudo make install
+sudo ldconfig
+
+mkdir ~/.config/autostart
+cp ~/hab_chase/HAB_chase.desktop ~/Desktop/
+cp ~/hab_chase/HAB_chase.desktop ~/.config/autostart/
+

@@ -1,0 +1,3 @@
+#!/bin/sh
+name=$1
+airspy_rx -t 0 -r /dev/stdout -a 1 -f $name -g 18 | csdr fir_decimate_cc 60 0.005 HAMMING | csdr bandpass_fir_fft_cc 0 0.1 0.05 | csdr realpart_cf | csdr agc_ff | csdr limit_ff | csdr fractional_decimator_ff 1.0416 | csdr convert_f_s16 | mplayer -cache 1024 -quiet -rawaudio samplesize=2:channels=1:rate=48000 -demuxer rawaudio -

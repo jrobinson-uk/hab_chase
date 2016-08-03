@@ -1,0 +1,4 @@
+#!/bin/bash
+airspy_info
+
+read -p ""
