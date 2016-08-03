@@ -1,7 +1,22 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install -y build-essential cmake libusb-1.0-0-dev pkg-config git-core libcurl4-openssl-dev libjpeg9-dev autoconf libxmlrpc-c++8-dev libfftw3-dev libfltk1.3-dev libsamplerate0-dev libssl-dev portaudio19-dev pavucontrol libpulse-dev mplayer2
+sudo apt-get install -y build-essential cmake libusb-1.0-0-dev pkg-config git-core libcurl4-openssl-dev libjpeg9-dev autoconf libxmlrpc-c++8-dev libfftw3-dev libfltk1.3-dev libsamplerate0-dev libssl-dev portaudio19-dev pavucontrol libpulse-dev mplayer2 libcurl4-openssl-dev libncurses5-dev
+
+echo "Installing SSDV..."
+sleep 2
+cd ~
+git clone https://github.com/fsphil/ssdv.git
+cd ssdv
+sudo make install
+
+echo "Installing Lora Gateway..."
+sleep 2
+cd ~
+git clone https://github.com/PiInTheSky/lora-gateway.git
+cd lora-gateway
+make
+nano gateway.txt
 
 echo "Installing Airspy drivers..."
 sleep 2
