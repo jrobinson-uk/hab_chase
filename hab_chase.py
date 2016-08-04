@@ -27,6 +27,8 @@ try:
     
 except:
     print("Error Loading Image")
+    im = Image.open("/home/pi/hab_chase/icons/placeholder.png")
+    im = ImageTk.PhotoImage(im.resize((256,192)))
 
 up = Image.open("/home/pi/hab_chase/icons/up.png")
 up = ImageTk.PhotoImage(up.resize((28,28)))
