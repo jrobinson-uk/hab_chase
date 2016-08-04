@@ -17,6 +17,7 @@ git clone https://github.com/PiInTheSky/lora-gateway.git
 cd lora-gateway
 make
 nano gateway.txt
+sudo raspi-config nonint do_spi 0
 
 echo "Installing Airspy drivers..."
 sleep 2
