@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install -y build-essential cmake libusb-1.0-0-dev pkg-config git-core libcurl4-openssl-dev libjpeg9-dev autoconf libxmlrpc-c++8-dev libfftw3-dev libfltk1.3-dev libsamplerate0-dev libssl-dev portaudio19-dev pavucontrol libpulse-dev mplayer2 libcurl4-openssl-dev libncurses5-dev python3-pil.imagetk
+sudo apt-get install -y build-essential cmake libusb-1.0-0-dev pkg-config git-core libcurl4-openssl-dev libjpeg9-dev autoconf libxmlrpc-c++8-dev libfftw3-dev libfltk1.3-dev libsamplerate0-dev libssl-dev portaudio19-dev pavucontrol libpulse-dev mplayer2 libcurl4-openssl-dev libncurses5-dev python3-pil.imagetk xterm
 
 echo "Installing SSDV..."
 sleep 2
