@@ -28,7 +28,7 @@ try:
 except:
     print("Error Loading Image")
 
-up = Image.open("/home/pi/tracker/up.png")
+up = Image.open("images/up.png")
 up = ImageTk.PhotoImage(up.resize((28,28)))
 
 cross = Image.open("/home/pi/tracker/close.png")
