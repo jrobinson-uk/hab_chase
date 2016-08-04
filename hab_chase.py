@@ -28,19 +28,19 @@ try:
 except:
     print("Error Loading Image")
 
-up = Image.open("images/up.png")
+up = Image.open("icons/up.png")
 up = ImageTk.PhotoImage(up.resize((28,28)))
 
-cross = Image.open("/home/pi/tracker/close.png")
+cross = Image.open("icons/close.png")
 cross = ImageTk.PhotoImage(cross.resize((28,28)))
 
-down = Image.open("/home/pi/tracker/down.png")
+down = Image.open("icons/down.png")
 down = ImageTk.PhotoImage(down.resize((28,28)))
 
-ear = Image.open("/home/pi/tracker/ear.png")
+ear = Image.open("icons/ear.png")
 ear = ImageTk.PhotoImage(ear.resize((28,28)))
 
-car = Image.open("/home/pi/tracker/car.png")
+car = Image.open("icons/car.png")
 car = ImageTk.PhotoImage(car.resize((28,28)))
 
 
@@ -65,7 +65,7 @@ def launchAirspy():
     freq = ''.join([dg1.cget("text"),dg2.cget("text"),dg3.cget("text"),dg4.cget("text"),dg5.cget("text"),dg6.cget("text"),dg7.cget("text")])
     os.system("killall airspy_rx")
     os.system("killall test_rx")
-    cmd = 'xterm -into {0} -e ~/tracker/launch_rx {1} -geometry 60x20 -sb &'.format(rx_wid,freq)
+    cmd = 'xterm -into {0} -e launch_rx {1} -geometry 60x20 -sb &'.format(rx_wid,freq)
     print(cmd)
     os.system(cmd)
 
@@ -137,9 +137,9 @@ rx = Frame(window, height=100, width=500)
 rx.grid(row=2,rowspan=3,column=0,sticky=N+E+S+W,padx=5,pady=5)
 rx_wid = rx.winfo_id()
 
-os.system('xterm -into %d -e ~/tracker/launch_gateway -geometry 60x20 -sb &' % gw_wid)
+os.system('xterm -into %d -e launch_gateway -geometry 60x20 -sb &' % gw_wid)
 
-os.system('xterm -into %d -e ~/tracker/test_rx -hold -geometry 60x20 -sb &' % rx_wid)
+os.system('xterm -into %d -e test_rx -hold -geometry 60x20 -sb &' % rx_wid)
 
 window.geometry("{0}x{1}+0+0".format(screen_width,screen_height))
 window.focus_set()
